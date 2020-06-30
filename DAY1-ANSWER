@@ -1,9 +1,30 @@
 
-def FindPairs(arr, k):
-    for i in range(0, len(arr)):
-        if k - arr[i] in arr:
-            return True
-    return False        
-A = [1, 4, 45, 6, 10, 8]
-n = 100
-print(FindPairs(A, n))
+#include <iostream>
+#include<vector>
+#include<unordered_set>
+using namespace std;
+bool fun(int k,vector<int> v,int n)
+{
+      unordered_set<int> m;
+    
+    for(int i=0;i<n;i++)
+    {  m.insert(v[i]);
+      if(m.find(k-v[i])!=m.end())
+      return true;
+        
+    }
+    return false;
+}
+int main()
+{
+    vector<int> v;
+    int n,ch,k;
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {  cin>>ch;
+        v.push_back(ch);
+    }
+    cin>>k;
+cout<<fun(k,v,n);
+    return 0;
+}
