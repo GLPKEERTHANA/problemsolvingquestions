@@ -28,3 +28,7 @@ int main()
 cout<<fun(k,v,n);
     return 0;
 }
+
+
+TIME COMPLEXITY :: O(N)
+SPACE COMPLEXITY ::O(N)
