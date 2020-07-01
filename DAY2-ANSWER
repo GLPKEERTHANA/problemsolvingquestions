@@ -42,3 +42,7 @@ for(int i=0;i<n;i++)
 cout<<ans[i]<<" ";
     return 0;
 }
+
+--NOT USING DIVISION OPERATOR
+TIMECOMPLEXITY :: O(N)
+SPACE COMPLEXITY :: O(N+N) N--SUFFIX ARRAY AND OTHER N--ANSWER STORAGE
