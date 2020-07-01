@@ -1,0 +1,44 @@
+#include <iostream>
+#include<vector>
+using namespace std;
+vector<int> fun(vector<int> a,int n)
+{ 
+vector<int> ans;
+if(n==0) return ans;
+if(n==1)
+{
+   ans.push_back(a[0]);
+   return ans;
+}
+    int suffix[n]={0};
+    suffix[n-1]=a[n-1];
+    for(int i=n-2;i>=0;i--)
+    suffix[i]=suffix[i+1]*a[i];
+    int p=a[0];
+    ans.push_back(suffix[1]);
+    for(int i=1;i<n-1;i++)
+    {
+       ans.push_back(p*suffix[i+1]);
+       p=p*a[i];
+    }
+    ans.push_back(p);
+    
+    return ans;
+}
+int main()
+{
+   int n;
+   cin>>n;
+   vector<int> a;
+   int ch;
+   vector<int>  ans;
+   for(int i=0;i<n;i++)
+   {  cin>>ch;
+       a.push_back(ch);
+   }
+   ans=fun(a,n);
+   
+for(int i=0;i<n;i++)
+cout<<ans[i]<<" ";
+    return 0;
+}
