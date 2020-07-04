@@ -1,0 +1,24 @@
+--LEVEL ORDER SERIALISATION
+vector<int> Solution::SERIALISE(TreeNode* A) {
+ #include<queue>
+ 
+    vector<int> v;
+    queue<TreeNode *> q;
+    q.push(A);
+    while(!q.empty())
+    {
+    
+     A=q.front();
+    
+     q.pop();
+    if(A!=NULL){
+     v.push_back(A->val);
+     q.push(A->left);
+     q.push(A->right);
+    }
+    else
+    v.push_back(-1);
+     
+    }
+    return v;
+    }
