@@ -22,3 +22,44 @@ vector<int> Solution::SERIALISE(TreeNode* A) {
     }
     return v;
     }
+--LEVEL ORDER DESERIALISATION
+TreeNode* Solution::solve(vector<int> &A) {
+    if(A.size()==0) return NULL; 
+    TreeNode * root=new TreeNode (A[0]);
+    TreeNode * t=root;
+    #include<queue>
+    queue<TreeNode *> q;
+    q.push(root);
+    int i=1;
+    while(!q.empty())
+    {
+        root=q.front();
+        q.pop();
+        int p1=A[i];
+        int p2= A[i+1];
+        i=i+2;
+        if(p1==-1)
+        {
+            root->left=NULL;
+        }
+         else
+        {
+            root->left=new TreeNode(p1);
+            q.push(root->left);
+        }
+        if(p2==-1)
+        {
+            root->right=NULL;
+        }
+         else
+        {
+            root->right=new TreeNode(p2);
+            q.push(root->right);
+        }
+        
+    }
+    return t;
+    
+    
+    
+}
