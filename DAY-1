@@ -1,0 +1,41 @@
+QUESTION::
+
+Good morning! Here's your coding interview problem for today.
+
+This problem was asked by Facebook.
+
+Given a positive integer n, find the smallest number of squared integers which sum to n.
+
+For example, given n = 13, return 2 since 13 = 32 + 22 = 9 + 4.
+
+Given n = 27, return 3 since 27 = 32 + 32 + 32 = 9 + 9 + 9.
+
+
+
+SOLUTION::
+
+
+int MinSquares(int n)
+	{
+	    // Code here
+	   vector <int> dp (n+1,INT_MAX);
+	  dp[0]=0;
+	  dp[1]=1;
+	  findmin(dp,n);
+	  return dp[n];
+	}
+	
+	int findmin(vector <int> &dp,int n)
+	{	  
+	    
+	    if(dp[n]!= INT_MAX) return dp[n];
+	   for(int i=1;i<=int(sqrt(n));i++)
+	   {  
+          dp[n] =  min(dp[n],1+findmin(dp,n-i*i));
+	   }
+	   
+return dp[n];
+	}
+
+
+
